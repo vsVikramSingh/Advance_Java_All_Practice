@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Exist Product</title>
+</head>
+<body>
+    <table border="4" cellpadding="4" cellspacing="4" bordercolor="cyan">
+        <thead>
+            <tr><th colspan="5">Edit Exist Product</th></tr>
+        </thead>
+        <tbody>
+            <form th:action="@{/update/{id}(id=${product.prodId})}" method="post" th:object="${product}">
+            <input type="hidden" id="prodId" th:field="*{prodId}"
+            <tr>
+                <td><label for="prodName">Product Name:</label></td>
+                <td><input type="text" id="prodName" th:field="*{prodName}"></td>
+            </tr>
+            <tr>
+                <td><label for="prodType">Product Type:</label></td>
+                <td><select id="prodType" th:field="*{prodType}">
+                    <option value="Liquid">Liquid</option>
+                    <option value="Solid">Solid</option>
+                    <option value="Gas">Gas</option>
+                    <option value="Semi-Solid">Semi-Solid</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="prodPrice">Product Price</label></td>
+                <td><input type="number" id="prodPrice" th:field="*{prodPrice}"></td>
+            </tr>
+            <tr>
+                <th><input type="submit" value="Update Product"></th>
+            </tr>
+            </form>
+        </tbody>
+
+    </table>
+</body>
+</html>
